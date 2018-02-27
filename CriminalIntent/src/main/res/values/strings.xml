@@ -8,4 +8,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="to_first">Jump to First</string>
+    <string name="to_last">Jump to Last</string>
+
+    <string name="date_picker_title">Date of crime:</string>
 </resources>

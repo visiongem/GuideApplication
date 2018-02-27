@@ -14,7 +14,7 @@ public class Crime {
     private Date mDate;
     private boolean mSolved;
     /* 是否需警方介入 */
-    private boolean mRequiresPolice;
+    private boolean mRequiresPolice = false;
 
     public Crime() {
         // 产生一个随机唯一ID值
