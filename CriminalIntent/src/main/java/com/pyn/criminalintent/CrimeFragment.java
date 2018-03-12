@@ -23,11 +23,13 @@ public class CrimeFragment extends Fragment {
 
     private static final String ARG_CRIME_ID = "crime_id";
     private static final String DIALOG_DATE = "DialogDate";
+    private static final String DIALOG_TIME= "DialogTime";
     private static final int REQUEST_DATE = 0;
+    private static final int REQUEST_TIME = 1;
 
     private Crime mCrime;
     private EditText edtTitleField;
-    private Button btnDate;
+    private Button btnDate, btnTime;
     private CheckBox cboxSolved;
 
     public static CrimeFragment newInstance(UUID crimeId) {
@@ -82,6 +84,17 @@ public class CrimeFragment extends Fragment {
             }
         });
 
+        btnTime = v.findViewById(R.id.crime_time);
+        btnTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getFragmentManager();
+                TimePickerFragment timeDialog = TimePickerFragment.newInstance(mCrime.getDate());
+                timeDialog.setTargetFragment(CrimeFragment.this, REQUEST_TIME);
+                timeDialog.show(fragmentManager, DIALOG_TIME);
+            }
+        });
+
         cboxSolved = v.findViewById(R.id.crime_solved);
         cboxSolved.setChecked(mCrime.isSolved());
         cboxSolved.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -101,6 +114,10 @@ public class CrimeFragment extends Fragment {
         }
         if (requestCode == REQUEST_DATE){
             Date date = (Date) data.getSerializableExtra(DatePickerFragment.EXTRA_DATE);
+            mCrime.setDate(date);
+            updateDate(btnDate, mCrime);
+        }else if (requestCode == REQUEST_TIME){
+            Date date = (Date) data.getSerializableExtra(TimePickerFragment.EXTRA_TIME);
             mCrime.setDate(date);
             updateDate(btnDate, mCrime);
         }
