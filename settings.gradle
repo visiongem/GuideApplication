@@ -1,1 +1,1 @@
-include ':GeoQuiz', ':CriminalIntent', ':BeatBox', ':NerdLauncher', ':PhotoGallery', ':DragAndDraw', ':Sunset'
+include ':GeoQuiz', ':CriminalIntent', ':BeatBox', ':NerdLauncher', ':PhotoGallery', ':DragAndDraw', ':Sunset', ':Locatr', ':MaterialDesign'
