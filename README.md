@@ -44,6 +44,6 @@
 一个查询当前位置的Flickr图片并显示在地图上的应用。借此应用学习如何使用定位服务
 和地图。
 
-论坛：http://forums.bignerdranch.com
+论坛：http://forums.bignerdranch.com 
 
 
